@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { PageBlocksNotFound } from "@/tina/__generated__/types";
+import { PageBlocksNotFound } from "@tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import Link from "next/link";
