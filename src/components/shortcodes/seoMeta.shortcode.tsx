@@ -17,9 +17,7 @@ type BuildMetadataOptions = {
   title: string;
   description?: string;
   seo?: SeoInput | null;
-  locale: string;
   routePattern: string;
-  routeParams?: Record<string, string>;
   ogType?: "website" | "article";
   appendSiteName?: boolean;
 };
@@ -30,7 +28,6 @@ type BuildMetadataOptions = {
  * - Open Graph (og:title, og:description, og:image, og:url, og:type, og:site_name)
  * - Twitter Card
  * - Canonical URL
- * - hreflang alternates (en, id, x-default)
  * - Robots directives
  */
 export function buildMetadata(options: BuildMetadataOptions): Metadata {
@@ -38,7 +35,6 @@ export function buildMetadata(options: BuildMetadataOptions): Metadata {
     title,
     description = "",
     seo,
-    routeParams = {},
     ogType = "website",
     appendSiteName = false,
   } = options;

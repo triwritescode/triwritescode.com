@@ -11,8 +11,18 @@ type DynamicIconProps = {
 type IconModule = Record<string, any>;
 
 const iconLibraries: Record<string, () => Promise<IconModule>> = {
-  Fa: () => import("react-icons/fa"),
-  Fa6: () => import("react-icons/fa6"),
+  Fa: async () => {
+    // Load both libraries
+    const [fa5, fa6] = await Promise.all([
+      import("react-icons/fa"),
+      import("react-icons/fa6"),
+    ]);
+
+    // Merge them: Put fa5 LAST so it overrides fa6.
+    // Result: You get your v5 icons by default, but if an icon
+    // is missing in v5 (like FaXmark), it falls back to the v6 version.
+    return { ...fa6, ...fa5 };
+  },
   Fi: () => import("react-icons/fi"),
   Hi: () => import("react-icons/hi"),
   Hi2: () => import("react-icons/hi2"),

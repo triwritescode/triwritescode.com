@@ -23,7 +23,8 @@
       "@/config/*": ["./src/config/*"],
       "@/components/*": ["./src/components/*"],
       "@/content/*": ["./src/content/*"],
-      "@/lib/*": ["./src/lib/*"]
+      "@/lib/*": ["./src/lib/*"],
+      "@tina/*": ["./tina/*"]
     }
   },
   "include": [

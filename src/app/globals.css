@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  /* Your existing fonts */
-  --font-inter: var(--font-inter), "Inter", sans-serif;
+  /* Map font-sans to Inter (loaded via next/font) */
+  --font-sans: var(--font-inter), "Inter", sans-serif;
 
   /* Add your custom colors here */
   --color-primary: #18171b;
@@ -23,4 +23,8 @@
   --color-gray-300: #cfcfcf;
   --color-gray-200: #e3e3e2;
   --color-gray-100: #f6f6f6;
+}
+
+.container {
+  @apply max-w-[750px] mx-auto px-4;
 }
