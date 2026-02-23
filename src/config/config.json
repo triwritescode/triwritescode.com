@@ -1,0 +1,13 @@
+{
+  "site": {
+    "title": "Tri Writes Code",
+    "description": "Personal blog and portfolio of Tri, a software engineer and writer.",
+    "base_url": "https://triwritescode.com",
+    "copyright": "Copyright © 2026 Tri Writes Code. All rights reserved."
+  },
+
+  "google_tag_manager": {
+    "enable": false,
+    "gtm_id": "GTM-XXXXXX"
+  }
+}
