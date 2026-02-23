@@ -13,9 +13,9 @@ type IconModule = Record<string, any>;
 const iconLibraries: Record<string, () => Promise<IconModule>> = {
   Fa: async () => {
     // Load both libraries
-    const [fa5, fa6] = await Promise.all([
-      import("react-icons/fa"),
+    const [fa6, fa5] = await Promise.all([
       import("react-icons/fa6"),
+      import("react-icons/fa"),
     ]);
 
     // Merge them: Put fa5 LAST so it overrides fa6.

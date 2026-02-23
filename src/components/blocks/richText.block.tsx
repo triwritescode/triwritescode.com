@@ -1,6 +1,6 @@
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { tinaField } from "tinacms/dist/react";
-import type { PageBlocksRichText } from "@/tina/__generated__/types";
+import type { PageBlocksRichText } from "@tina/__generated__/types";
 import Youtube from "../shortcodes/youtube.shortcode";
 
 type RichTextBlockProps = PageBlocksRichText;

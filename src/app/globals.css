@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@config "../../tailwind.config.js";
 
 @theme {
   /* Map font-sans to Inter (loaded via next/font) */
