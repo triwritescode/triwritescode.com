@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  /* Your existing fonts */
+  --font-inter: var(--font-inter), "Inter", sans-serif;
+
+  /* Add your custom colors here */
+  --color-primary: #18171b;
+  --color-secondary: #302e33;
+  --color-accent: #cacaca;
+  --color-info: #31cecb;
+  --color-success: #16a34a;
+  --color-warning: #facc15;
+  --color-danger: #ff8585;
+
+  /* Custom Gray Scale */
+  --color-gray-900: #474848;
+  --color-gray-800: #575757;
+  --color-gray-700: #6a6a6a;
+  --color-gray-600: #8c8c8c;
+  --color-gray-500: #9f9f9f;
+  --color-gray-400: #b4b4b4;
+  --color-gray-300: #cfcfcf;
+  --color-gray-200: #e3e3e2;
+  --color-gray-100: #f6f6f6;
+}
