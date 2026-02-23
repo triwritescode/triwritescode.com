@@ -18,15 +18,6 @@ export default defineConfig({
   // Get this from tina.io
   token: process.env.TINA_TOKEN_CONTENT,
 
-  search: {
-    tina: {
-      indexerToken: process.env.TINA_TOKEN_SEARCH,
-      stopwordLanguages: ["eng"],
-    },
-    indexBatchSize: 100,
-    maxSearchIndexFieldLength: 100,
-  },
-
   build: {
     outputFolder: "admin",
     publicFolder: "public",
