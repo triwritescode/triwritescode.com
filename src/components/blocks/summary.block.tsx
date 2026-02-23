@@ -34,17 +34,17 @@ const SummaryBlock = (props: SummaryBlockProps) => {
             <Image
               src={props.avatar}
               alt={props.name || "Avatar"}
-              width={64}
-              height={64}
+              width={96}
+              height={96}
               className="rounded-full"
               priority
             />
           </div>
         )}
         <div>
-          <h1 className="text-2xl font-bold text-white">{props.name}</h1>
+          <h1 className="text-3xl font-bold text-white">{props.name}</h1>
           {props.subtitle && (
-            <p className="text-sm text-gray-500">{props.subtitle}</p>
+            <p className="text-xl text-gray-500">{props.subtitle}</p>
           )}
         </div>
       </div>
