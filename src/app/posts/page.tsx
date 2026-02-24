@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import client from "@tina/__generated__/client";
+
 import { buildMetadata } from "@/components/shortcodes/seoMeta.shortcode";
 import PageLayout from "@/components/layouts/page.layout";
 

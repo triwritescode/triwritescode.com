@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import client from "@tina/__generated__/client";
+
 import config from "@/config/config.json";
 
 const BASE_URL = config.site.base_url;
