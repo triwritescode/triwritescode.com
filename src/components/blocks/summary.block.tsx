@@ -26,7 +26,10 @@ const SummaryBlock = (props: SummaryBlockProps) => {
   const links = props.socialLinks?.filter(Boolean) as SocialLink[];
 
   return (
-    <section className="container my-12 px-12!">
+    <section
+      data-tina-field={tinaField(props, "enable")}
+      className="container my-12 sm:px-12!"
+    >
       {/* Profile header */}
       <div className="mb-8 flex items-center gap-4">
         {props.avatar && (
@@ -42,16 +45,29 @@ const SummaryBlock = (props: SummaryBlockProps) => {
           </div>
         )}
         <div>
-          <h1 className="text-3xl font-bold text-white">{props.name}</h1>
+          <h1
+            data-tina-field={tinaField(props, "name")}
+            className="text-2xl md:text-3xl font-bold text-accent"
+          >
+            {props.name}
+          </h1>
           {props.subtitle && (
-            <p className="text-xl text-gray-500">{props.subtitle}</p>
+            <p
+              data-tina-field={tinaField(props, "subtitle")}
+              className="md:text-lg md:text-xl text-accent/75"
+            >
+              {props.subtitle}
+            </p>
           )}
         </div>
       </div>
 
       {/* Bio */}
       {props.bio && (
-        <div className="prose text-gray-400 [&_a]:text-accent [&_a]:underline [&_p]:mb-0 [&_strong]:text-white">
+        <div
+          data-tina-field={tinaField(props, "bio")}
+          className="prose text-gray-400 [&_a]:text-accent [&_a]:underline [&_p]:mb-0 [&_strong]:text-white"
+        >
           <TinaMarkdown content={props.bio} />
         </div>
       )}
@@ -60,9 +76,11 @@ const SummaryBlock = (props: SummaryBlockProps) => {
 
       {/* Social links */}
       {links && links.length > 0 && (
-        <div className="flex flex-wrap gap-6">
+        <div className="flex flex-wrap gap-4 sm:gap-6">
           {links.map((link, i) => (
             <a
+              // @ts-ignore
+              data-tina-field={tinaField(props, "socialLinks." + i)}
               key={i}
               href={link.url || "#"}
               target={link.url?.startsWith("http") ? "_blank" : undefined}
