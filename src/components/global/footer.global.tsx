@@ -6,7 +6,7 @@ type FooterProps = {
 
 const Footer = ({ footer }: FooterProps) => {
   return (
-    <footer className="border-t border-gray-900 px-4 py-8">
+    <footer className="container border-t border-gray-900 px-4 py-4">
       <p className="text-center text-sm text-gray-600">
         {footer?.copyright ||
           `© ${new Date().getFullYear()} Tri Denda. All rights reserved.`}
