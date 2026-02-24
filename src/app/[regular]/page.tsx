@@ -1,11 +1,10 @@
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import client from "@tina/__generated__/client";
-import { buildMetadata } from "@/components/shortcodes/seoMeta.shortcode";
+
 import PageLayout from "@/components/layouts/page.layout";
 
 export async function generateStaticParams() {
-  const params: { locale: string; slug: string }[] = [];
+  const params: { regular: string }[] = [];
 
   try {
     const pagesRes = await client.queries.pageConnection();
@@ -22,8 +21,8 @@ export async function generateStaticParams() {
       const match = path.match(/^([^/]+)\/(.+)\.mdx$/);
       if (!match) continue;
 
-      const [, locale, slug] = match;
-      params.push({ locale, slug });
+      const [regular] = match;
+      params.push({ regular });
     }
   } catch {
     // Return empty params if TinaCMS fails - pages will be generated on-demand
@@ -34,14 +33,14 @@ export async function generateStaticParams() {
 }
 
 type RegularPageProps = {
-  params: Promise<{ locale: string; slug: string }>;
+  params: Promise<{ regular: string }>;
 };
 
 const RegularPage = async ({ params }: RegularPageProps) => {
   try {
-    const { locale, slug } = await params;
+    const { regular } = await params;
     const [pageRes, globalRes] = await Promise.all([
-      client.queries.page({ relativePath: `${locale}/${slug}.mdx` }),
+      client.queries.page({ relativePath: `${regular}.mdx` }),
       client.queries.global({ relativePath: "_index.mdx" }),
     ]);
 
