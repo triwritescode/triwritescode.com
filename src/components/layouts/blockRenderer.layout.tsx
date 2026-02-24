@@ -16,6 +16,9 @@ const DynamicNotFound = dynamic(() =>
 const DynamicExperience = dynamic(() =>
   import("@/components/blocks/experience.block").then((mod) => mod.default),
 );
+const DynamicProjects = dynamic(() =>
+  import("@/components/blocks/projects.block").then((mod) => mod.default),
+);
 
 type BlockRendererProps = {
   block: PageBlocks;
@@ -37,6 +40,9 @@ const BlockRenderer = ({ block }: BlockRendererProps) => {
 
     case "PageBlocksExperience":
       return <DynamicExperience {...block} />;
+
+    case "PageBlocksProjects":
+      return <DynamicProjects {...block} />;
 
     default:
       console.warn(`No component found for block type: ${block.__typename}`);

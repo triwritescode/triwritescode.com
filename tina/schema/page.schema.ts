@@ -6,6 +6,7 @@ import ctaBlock from "./blocks/cta.block";
 import richTextBlock from "./blocks/richText.block";
 import notFoundBlock from "./blocks/notFound.block";
 import experienceBlock from "./blocks/experience.block";
+import projectsBlock from "./blocks/projects.block";
 
 const pageSchema: Collection = {
   name: "page",
@@ -53,6 +54,7 @@ const pageSchema: Collection = {
         richTextBlock,
         notFoundBlock,
         experienceBlock,
+        projectsBlock,
       ],
     },
   ],
