@@ -13,6 +13,9 @@ const DynamicRichText = dynamic(() =>
 const DynamicNotFound = dynamic(() =>
   import("@/components/blocks/notFound.block").then((mod) => mod.default),
 );
+const DynamicExperience = dynamic(() =>
+  import("@/components/blocks/experience.block").then((mod) => mod.default),
+);
 
 type BlockRendererProps = {
   block: PageBlocks;
@@ -31,6 +34,9 @@ const BlockRenderer = ({ block }: BlockRendererProps) => {
 
     case "PageBlocksNotFound":
       return <DynamicNotFound {...block} />;
+
+    case "PageBlocksExperience":
+      return <DynamicExperience {...block} />;
 
     default:
       console.warn(`No component found for block type: ${block.__typename}`);

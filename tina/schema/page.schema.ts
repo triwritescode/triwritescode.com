@@ -5,6 +5,7 @@ import summaryBlock from "./blocks/summary.block";
 import ctaBlock from "./blocks/cta.block";
 import richTextBlock from "./blocks/richText.block";
 import notFoundBlock from "./blocks/notFound.block";
+import experienceBlock from "./blocks/experience.block";
 
 const pageSchema: Collection = {
   name: "page",
@@ -46,7 +47,13 @@ const pageSchema: Collection = {
       label: "Page Sections",
       type: "object",
       list: true,
-      templates: [summaryBlock, ctaBlock, richTextBlock, notFoundBlock],
+      templates: [
+        summaryBlock,
+        ctaBlock,
+        richTextBlock,
+        notFoundBlock,
+        experienceBlock,
+      ],
     },
   ],
 };
