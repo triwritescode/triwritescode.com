@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
+import { SpeedInsights as VercelSpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -31,6 +32,7 @@ export default function RootLayout({
       >
         {children}
         <VercelAnalytics />
+        <VercelSpeedInsights />
       </body>
     </html>
   );
