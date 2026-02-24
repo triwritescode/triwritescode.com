@@ -42,9 +42,6 @@ export function buildMetadata(options: BuildMetadataOptions): Metadata {
   const siteName = config.site.title;
 
   const pageTitle = seo?.metaTitle || title;
-  const displayTitle = appendSiteName
-    ? `${pageTitle} | ${siteName}`
-    : pageTitle;
   const pageDescription = seo?.metaDescription || description;
   const pageImage = seo?.ogImage || null;
 
@@ -55,12 +52,12 @@ export function buildMetadata(options: BuildMetadataOptions): Metadata {
   const canonical = seo?.canonical || BASE_URL;
 
   return {
-    title: displayTitle,
+    title: pageTitle,
     description: pageDescription,
     keywords,
     openGraph: {
       type: ogType,
-      title: displayTitle,
+      title: pageTitle,
       description: pageDescription,
       url: canonical,
       siteName,
@@ -68,7 +65,7 @@ export function buildMetadata(options: BuildMetadataOptions): Metadata {
     },
     twitter: {
       card: "summary_large_image",
-      title: displayTitle,
+      title: pageTitle,
       description: pageDescription,
       images: pageImage ? [pageImage] : [],
     },
