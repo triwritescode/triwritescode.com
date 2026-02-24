@@ -5,6 +5,8 @@ import { SpeedInsights as VercelSpeedInsights } from "@vercel/speed-insights/nex
 
 import "./globals.css";
 
+import config from "@/config/config.json";
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -13,12 +15,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Tri Denda — Software Engineer & Technical Lead",
-    template: "%s | Tri Denda",
+    default: config.site.title,
+    template: `%s | ${config.site.title}`,
   },
-  description:
-    "Personal portfolio of Tri Denda, a software engineer and technical lead based in Indonesia.",
-  metadataBase: new URL("https://triwritescode.com"),
+  description: config.site.description,
+  metadataBase: new URL(config.site.base_url),
 };
 
 export default function RootLayout({

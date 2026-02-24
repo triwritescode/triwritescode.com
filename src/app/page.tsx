@@ -17,6 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: page.title || "Home",
       seo: page.seo,
       routePattern: "/",
+      appendSiteName: true,
     });
   } catch {
     return {

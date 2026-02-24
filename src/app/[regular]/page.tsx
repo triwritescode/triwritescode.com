@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import client from "@tina/__generated__/client";
 
 import PageLayout from "@/components/layouts/page.layout";
+import { buildMetadata } from "@/components/shortcodes/seoMeta.shortcode";
+import { Metadata } from "next";
 
 export async function generateStaticParams() {
   const params: { regular: string }[] = [];
@@ -30,6 +32,38 @@ export async function generateStaticParams() {
   }
 
   return params;
+}
+
+export async function generateMetadata(
+  props: RegularPageProps,
+): Promise<Metadata> {
+  const { regular } = await props.params;
+
+  try {
+    const pageRes = await client.queries.page({
+      relativePath: `${regular}.mdx`,
+    });
+
+    const page = pageRes.data.page;
+
+    if (!page) {
+      return {
+        title: "Page Not Found",
+        description: "The requested content could not be found.",
+      };
+    }
+
+    return buildMetadata({
+      title: page.title || "",
+      seo: page.seo,
+      routePattern: "/[regular]",
+    });
+  } catch {
+    return {
+      title: "Page Not Found",
+      description: "The requested content could not be found.",
+    };
+  }
 }
 
 type RegularPageProps = {
