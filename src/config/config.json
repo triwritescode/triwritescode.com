@@ -2,12 +2,11 @@
   "site": {
     "title": "Tri Writes Code",
     "description": "Personal blog and portfolio of Tri, a software engineer and writer.",
-    "base_url": "https://triwritescode.vercel.app",
-    "copyright": "Copyright © 2026 Tri Writes Code. All rights reserved."
+    "base_url": "https://triwritescode.vercel.app"
   },
 
   "google_tag_manager": {
-    "enable": false,
+    "enable": true,
     "gtm_id": "GTM-XXXXXX"
   }
 }

@@ -1,6 +1,7 @@
 import { defineConfig } from "tinacms";
 
 import globalSchema from "./schema/global.schema";
+import configSchema from "./schema/config.shema";
 import pageSchema from "./schema/page.schema";
 
 // Your hosting provider likely exposes this as an environment variable
@@ -29,6 +30,6 @@ export default defineConfig({
     },
   },
   schema: {
-    collections: [globalSchema, pageSchema],
+    collections: [globalSchema, configSchema, pageSchema],
   },
 });

@@ -1,5 +1,7 @@
 {
-  "name": "my-app",
+  "name": "triwritescode.com",
+  "description": "Personal blog and portfolio of Tri, a software engineer and writer.",
+  "author": "Tri Denda",
   "version": "0.1.0",
   "private": true,
   "type": "module",
