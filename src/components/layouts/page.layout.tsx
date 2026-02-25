@@ -6,11 +6,20 @@ import type {
   GlobalQuery,
   PageBlocks,
   PageQuery,
+  PostConnection,
 } from "@tina/__generated__/types";
 
 import Header from "@/components/global/header.global";
 import Footer from "@/components/global/footer.global";
 import BlockRenderer from "@/components/layouts/blockRenderer.layout";
+
+type PostEdge = {
+  node?: {
+    _sys: { filename: string };
+    title?: string | null;
+    publishedDate?: string | null;
+  } | null;
+};
 
 type PageLayoutClientProps = {
   initialPageData: {
@@ -23,11 +32,16 @@ type PageLayoutClientProps = {
     variables: Exact<{ relativePath: string }>;
     query: string;
   };
+  initialPostsData?: {
+    data: PostConnection | null;
+  };
 };
 
 const PageLayout = (props: PageLayoutClientProps) => {
   const { data: pageData } = useTina(props.initialPageData);
   const { data: globalData } = useTina(props.initialGlobalData);
+
+  const posts = props.initialPostsData?.data?.edges as PostEdge[] | undefined;
 
   return (
     <>
@@ -35,7 +49,7 @@ const PageLayout = (props: PageLayoutClientProps) => {
 
       <main className="min-h-[calc(100vh-119px)]">
         {pageData.page.blocks?.filter(Boolean).map((block, i) => (
-          <BlockRenderer key={i} block={block as PageBlocks} />
+          <BlockRenderer key={i} block={block as PageBlocks} posts={posts} />
         ))}
       </main>
 

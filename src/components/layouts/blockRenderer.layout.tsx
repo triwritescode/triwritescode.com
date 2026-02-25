@@ -19,12 +19,24 @@ const DynamicExperience = dynamic(() =>
 const DynamicProjects = dynamic(() =>
   import("@/components/blocks/projects.block").then((mod) => mod.default),
 );
+const DynamicPostList = dynamic(() =>
+  import("@/components/blocks/postList.block").then((mod) => mod.default),
+);
+
+type PostEdge = {
+  node?: {
+    _sys: { filename: string };
+    title?: string | null;
+    publishedDate?: string | null;
+  } | null;
+};
 
 type BlockRendererProps = {
   block: PageBlocks;
+  posts?: PostEdge[] | null;
 };
 
-const BlockRenderer = ({ block }: BlockRendererProps) => {
+const BlockRenderer = ({ block, posts }: BlockRendererProps) => {
   switch (block.__typename) {
     case "PageBlocksSummary":
       return <DynamicSummary {...block} />;
@@ -43,6 +55,9 @@ const BlockRenderer = ({ block }: BlockRendererProps) => {
 
     case "PageBlocksProjects":
       return <DynamicProjects {...block} />;
+
+    case "PageBlocksPostList":
+      return <DynamicPostList {...block} posts={posts} />;
 
     default:
       console.warn(`No component found for block type: ${block.__typename}`);

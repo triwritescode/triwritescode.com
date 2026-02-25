@@ -7,6 +7,7 @@ import richTextBlock from "./blocks/richText.block";
 import notFoundBlock from "./blocks/notFound.block";
 import experienceBlock from "./blocks/experience.block";
 import projectsBlock from "./blocks/projects.block";
+import postListBlock from "./blocks/postList.block";
 
 const pageSchema: Collection = {
   name: "page",
@@ -55,6 +56,7 @@ const pageSchema: Collection = {
         notFoundBlock,
         experienceBlock,
         projectsBlock,
+        postListBlock,
       ],
     },
   ],

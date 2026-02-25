@@ -1,0 +1,82 @@
+---
+draft: false
+title: 'How to Hit 100/100 Lighthouse Scores with Next.js'
+publishedDate: 2026-02-20T00:00:00.000Z
+seo:
+  metaTitle: 'How to Hit 100/100 Lighthouse Scores with Next.js'
+  metaDescription: 'A practical guide to achieving perfect Lighthouse scores in your Next.js application through optimization techniques.'
+---
+
+Achieving a perfect 100/100 Lighthouse score isn't just about bragging rights—it directly impacts user experience, SEO rankings, and conversion rates. Here's how I consistently hit perfect scores on Next.js projects.
+
+## Understanding the Metrics
+
+Lighthouse measures four key areas:
+
+- **Performance**: How fast your page loads
+- **Accessibility**: How usable your site is for everyone
+- **Best Practices**: Security and modern web standards
+- **SEO**: Search engine optimization basics
+
+## Image Optimization
+
+The biggest performance killer is unoptimized images. Next.js makes this easy:
+
+```tsx
+import Image from 'next/image';
+
+<Image
+  src="/hero.jpg"
+  alt="Hero image"
+  width={1200}
+  height={600}
+  priority // for above-the-fold images
+/>
+```
+
+Key points:
+- Always use `next/image` instead of `<img>`
+- Set `priority` for LCP images
+- Use WebP or AVIF formats
+- Properly size images for their display size
+
+## Font Loading Strategy
+
+Fonts are often the second biggest performance issue:
+
+```tsx
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+});
+```
+
+This approach:
+- Self-hosts the font (no external requests)
+- Uses `font-display: swap` to prevent layout shift
+- Only loads the subsets you need
+
+## Code Splitting
+
+Next.js handles most code splitting automatically, but you can optimize further:
+
+```tsx
+import dynamic from 'next/dynamic';
+
+const HeavyComponent = dynamic(
+  () => import('@/components/HeavyComponent'),
+  { loading: () => <Skeleton /> }
+);
+```
+
+## The Result
+
+Following these practices, I consistently achieve:
+- Performance: 100
+- Accessibility: 100
+- Best Practices: 100
+- SEO: 100
+
+The key is measuring early and often. Run Lighthouse in CI/CD to catch regressions before they ship.
