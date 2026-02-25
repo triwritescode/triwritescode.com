@@ -1,43 +1,76 @@
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import client from "@tina/__generated__/client";
 
-import { buildMetadata } from "@/components/shortcodes/seoMeta.shortcode";
+import type { PostConnection } from "@tina/__generated__/types";
 import PageLayout from "@/components/layouts/page.layout";
+import { buildMetadata } from "@/components/shortcodes/seoMeta.shortcode";
 
 export async function generateMetadata(): Promise<Metadata> {
   try {
     const pageRes = await client.queries.page({
-      relativePath: "posts.mdx",
+      relativePath: `posts.mdx`,
     });
 
     const page = pageRes.data.page;
 
+    if (!page) {
+      return {
+        title: "Page Not Found",
+        description: "The requested content could not be found.",
+      };
+    }
+
     return buildMetadata({
-      title: page.title || "Posts",
+      title: page.title || "",
       seo: page.seo,
       routePattern: "/posts",
     });
   } catch {
     return {
-      title: "Tri Denda — Posts",
-      description:
-        "Explore Tri Denda's professional journey, technical leadership roles, and contributions across diverse engineering teams.",
+      title: "Page Not Found",
+      description: "The requested content could not be found.",
     };
   }
 }
 
-export default async function Posts() {
+const PostsPage = async () => {
   try {
     const [pageRes, globalRes] = await Promise.all([
-      client.queries.page({ relativePath: "posts.mdx" }),
-      client.queries.global({ relativePath: "_index.mdx" }),
+      client.queries.page({
+        relativePath: `posts.mdx`,
+      }),
+      client.queries.global({
+        relativePath: `_index.mdx`,
+      }),
     ]);
 
+    const hasPostList = pageRes.data.page.blocks?.some(
+      (block) => block?.__typename === "PageBlocksPostList",
+    );
+
+    const postsRes = hasPostList
+      ? await client.queries.postConnection({
+          filter: {
+            draft: {
+              eq: false,
+            },
+          },
+        })
+      : null;
+
     return (
-      <PageLayout initialPageData={pageRes} initialGlobalData={globalRes} />
+      <PageLayout
+        initialPageData={pageRes}
+        initialGlobalData={globalRes}
+        initialPostsData={{
+          data: postsRes?.data?.postConnection as PostConnection | null,
+        }}
+      />
     );
   } catch {
     return notFound();
   }
-}
+};
+
+export default PostsPage;

@@ -3,6 +3,7 @@ import { defineConfig } from "tinacms";
 import globalSchema from "./schema/global.schema";
 import configSchema from "./schema/config.shema";
 import pageSchema from "./schema/page.schema";
+import postSchema from "./schema/post.schema";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -30,6 +31,6 @@ export default defineConfig({
     },
   },
   schema: {
-    collections: [globalSchema, configSchema, pageSchema],
+    collections: [globalSchema, configSchema, pageSchema, postSchema],
   },
 });
