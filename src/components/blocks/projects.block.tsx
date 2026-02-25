@@ -71,22 +71,10 @@ const ImageGallery = ({ images }: { images: ImageItem[] }) => {
         <div className="flex items-center justify-center gap-4 py-3 border-t border-gray-900">
           <button
             onClick={goToPrev}
-            className="flex h-6 w-6 items-center justify-center rounded border border-gray-800 text-gray-500 transition-colors hover:border-gray-700 hover:text-white"
+            className="flex h-6 w-6 hover:cursor-pointer items-center justify-center rounded border border-gray-800 text-gray-500 transition-colors hover:border-gray-700 hover:text-white"
             aria-label="Previous image"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="m15 18-6-6 6-6" />
-            </svg>
+            <DynamicIcon icon="FaChevronLeft" className="w-2.5 h-2.5" />
           </button>
 
           <div className="flex items-center gap-1.5">
@@ -107,22 +95,10 @@ const ImageGallery = ({ images }: { images: ImageItem[] }) => {
 
           <button
             onClick={goToNext}
-            className="flex h-6 w-6 items-center justify-center rounded border border-gray-800 text-gray-500 transition-colors hover:border-gray-700 hover:text-white"
+            className="flex h-6 w-6 hover:cursor-pointer items-center justify-center rounded border border-gray-800 text-gray-500 transition-colors hover:border-gray-700 hover:text-white"
             aria-label="Next image"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="m9 18 6-6-6-6" />
-            </svg>
+            <DynamicIcon icon="FaChevronRight" className="w-2.5 h-2.5" />
           </button>
         </div>
       )}
@@ -168,7 +144,7 @@ const ProjectCard = ({ project }: { project: ProjectItem }) => {
         {project.logo && (
           <div
             data-tina-field={tinaField(project, "logo")}
-            className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-gray-800"
+            className="relative h-12 w-12 shrink-0 overflow-hidden"
           >
             <Image
               src={project.logo}
@@ -206,27 +182,17 @@ const ProjectCard = ({ project }: { project: ProjectItem }) => {
           <button
             onClick={() => setShowHighlights((prev) => !prev)}
             className={cn(
-              "flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
+              "flex items-center gap-1.5 hover:cursor-pointer rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
               "bg-accent/20 text-accent hover:bg-accent/30",
             )}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="12"
-              height="12"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+            <DynamicIcon
+              icon="FaChevronDown"
               className={cn(
-                "transition-transform",
+                "transition-transform w-2 h-2",
                 showHighlights ? "rotate-180" : "",
               )}
-            >
-              <path d="m6 9 6 6 6-6" />
-            </svg>
+            />
             Highlights
           </button>
         )}
