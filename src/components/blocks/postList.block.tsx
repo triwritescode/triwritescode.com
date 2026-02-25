@@ -100,7 +100,7 @@ const PostListBlock = (props: PostListBlockProps) => {
                 key={i}
                 href={`/posts/${post._sys.filename}`}
                 className={cn(
-                  "group flex items-center gap-4 py-2.5 rounded-lg px-4",
+                  "group flex flex-col sm:flex-row sm:items-center sm:gap-4 py-2.5 rounded-lg px-4",
                   "transition-colors bg-linear-to-r from-secondary to-primary hover:from-secondary/70",
                 )}
               >
