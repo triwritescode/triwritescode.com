@@ -7,6 +7,7 @@ import type { Exact, GlobalQuery, PostQuery } from "@tina/__generated__/types";
 
 import Header from "@/components/global/header.global";
 import Footer from "@/components/global/footer.global";
+import TinaMarkdwonComponents, { proseClasses } from "../shortcodes/tinaMarkdownComponents.shortchode";
 
 type PostLayoutClientProps = {
   initialPostData: {
@@ -64,9 +65,9 @@ const PostLayout = (props: PostLayoutClientProps) => {
           {post.body && (
             <div
               data-tina-field={tinaField(post, "body")}
-              className="prose prose-invert max-w-none text-gray-300 prose-headings:text-white prose-headings:font-bold prose-h2:text-lg prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-base prose-h3:mt-6 prose-h3:mb-3 prose-p:mb-4 prose-p:leading-relaxed prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-strong:text-white prose-ul:my-4 prose-ul:pl-5 prose-li:my-1 prose-li:marker:text-gray-600 prose-blockquote:border-l-accent prose-blockquote:text-gray-400 prose-blockquote:not-italic"
+              className={proseClasses}
             >
-              <TinaMarkdown content={post.body} />
+              <TinaMarkdown content={post.body} components={TinaMarkdwonComponents} />
             </div>
           )}
         </article>
@@ -78,3 +79,4 @@ const PostLayout = (props: PostLayoutClientProps) => {
 };
 
 export default PostLayout;
+

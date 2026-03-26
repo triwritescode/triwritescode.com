@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import { TinaMarkdown, TinaMarkdownContent } from "tinacms/dist/rich-text";
-import DynamicIcon from "@/components/shortcodes/dynamicIcon.shortcode";
 import { tinaField } from "tinacms/react";
+
+import DynamicIcon from "@/components/shortcodes/dynamicIcon.shortcode";
+import TinaMarkdwonComponents, { proseClasses } from "../shortcodes/tinaMarkdownComponents.shortchode";
 
 type SocialLink = {
   label?: string | null;
@@ -66,9 +68,9 @@ const SummaryBlock = (props: SummaryBlockProps) => {
       {props.bio && (
         <div
           data-tina-field={tinaField(props, "bio")}
-          className="prose text-gray-400 [&_a]:text-accent [&_a]:underline [&_p]:mb-0 [&_strong]:text-white"
+          className={proseClasses}
         >
-          <TinaMarkdown content={props.bio} />
+          <TinaMarkdown content={props.bio} components={TinaMarkdwonComponents} />
         </div>
       )}
 
@@ -102,3 +104,4 @@ const SummaryBlock = (props: SummaryBlockProps) => {
 };
 
 export default SummaryBlock;
+

@@ -1,7 +1,8 @@
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { tinaField } from "tinacms/dist/react";
 import type { PageBlocksRichText } from "@tina/__generated__/types";
-import Youtube from "../shortcodes/youtube.shortcode";
+
+import TinaMarkdwonComponents, { proseClasses } from "../shortcodes/tinaMarkdownComponents.shortchode";
 
 type RichTextBlockProps = PageBlocksRichText;
 
@@ -15,18 +16,9 @@ const RichTextBlock = (props: RichTextBlockProps) => {
       <div className="container mx-auto">
         <article
           data-tina-field={tinaField(props, "body")}
-          className="prose prose-sm max-w-3xl mx-auto"
+          className={proseClasses}
         >
-          <TinaMarkdown
-            content={props.body}
-            components={{
-              youtube: ({ id, title }: any) => (
-                <div className="my-12">
-                  <Youtube id={id} title={title} />
-                </div>
-              ),
-            }}
-          />
+          <TinaMarkdown content={body} components={TinaMarkdwonComponents} />
         </article>
       </div>
     </section>
