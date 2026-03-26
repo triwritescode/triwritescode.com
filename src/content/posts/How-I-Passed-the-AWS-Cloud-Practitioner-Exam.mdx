@@ -1,0 +1,52 @@
+---
+draft: false
+title: How I Passed the AWS Cloud Practitioner Exam
+seo:
+  metaTitle: How I Passed the AWS Cloud Practitioner Exam
+  metaDescription: 'I passed the AWS Cloud Practitioner exam using a custom AI-driven study workflow. Read how I combined structured learning with active recall to master the cloud.'
+  keywords:
+    - AWS Cloud Practitioner
+    - AWS Certification
+    - Tri Denda
+    - Software Engineer Indonesia
+    - Exam Preparation
+  canonical: 'https://triwritescode.vercel.app/posts/How-I-Passed-the-AWS-Cloud-Practitioner-Exam'
+publishedDate: 2026-03-26T09:15:27.066Z
+---
+
+As a Software Engineer specializing in the modern React ecosystem, I spend my days deep in Next.js, TypeScript, and Supabase. But building fast UIs and modern backends is only half the equation. To truly engineer reliable, scalable enterprise applications, you have to understand the underlying infrastructure they run on.
+
+That is why I decided to solidify my cloud knowledge and earn my AWS Certified Cloud Practitioner certification.
+
+However, the AWS ecosystem is massive. I didn't just want to passively read through hundreds of pages of whitepapers or memorize definitions; I wanted a structured foundation paired with an active, iterative way to test my knowledge and uncover my blind spots.
+
+## The Foundation: Zero to Mastery
+
+To tackle this, I split my approach into two parts: structured learning and active recall.
+
+For the structured learning, I relied heavily on the Zero to Mastery (ZTM) AWS Cloud Practitioner course. ZTM is an incredible resource that cuts through the noise and provides a clear, practical roadmap of the cloud. It broke down complex infrastructure concepts into digestible lessons. If you are starting from zero, their curriculum is the best foundation you can get, and I highly recommend it.
+
+But watching videos is still a passive exercise. To truly make that knowledge stick for the exam, I needed a way to test myself.
+
+## The System: An AI-Driven Study Workflow
+
+Instead of buying standard, static practice exams, I took the knowledge I gained from ZTM and built a custom study system using Markdown and AI. I treated my study process the same way I treat software architecture: keep it simple, make it iterative, and optimize for quick feedback loops.
+
+I have open-sourced the entire framework, but here is the core architecture of how I studied:
+
+* **Curated Markdown Base:** As I progressed through the ZTM course, I condensed my notes into three core files: [AWS Exam Guide.md,](https://github.com/triwritescode/aws-exam-preparation/blob/main/AWS%20Exam%20Guide.md) [AWS Services.md](https://github.com/triwritescode/aws-exam-preparation/blob/main/AWS%20Services.md) (my personal cheat sheet), and [Questions.md](https://github.com/triwritescode/aws-exam-preparation/blob/main/Questions.md).
+* **Contextual AI Prompting**: I fed these three files into an AI assistant (Gemini), instructing it to act as my personal tutor. By grounding the AI in my exact study materials, it understood my baseline knowledge and the exact scope of the exam.
+* **Targeted Generation**: Instead of taking generic 65-question tests, I asked the AI to generate hyper-focused, 5-question quizzes on my weakest domains—like the nuances of the AWS Shared Responsibility Model or specific database use cases.
+* **Iterative Learning**: When I got a question wrong, the AI didn't just give me the correct letter. It explained the why. I would take that explanation, distill it, and commit it back to my [AWS Services.md](https://github.com/triwritescode/aws-exam-preparation/blob/main/AWS%20Services.md) file. The more I practiced, the stronger my reference material became.
+
+## Why this matters
+
+Passing the certification is a great milestone, but the real takeaway for me was the workflow itself.
+
+In modern software engineering, extreme autonomy is a requirement. Whether I am digitizing a complex manual workflow for an operations team, or learning the intricacies of cloud architecture, the ability to rapidly ingest, test, and apply new information is the most valuable skill an engineer can have.
+
+You don't just need to know the answers; you need to know how to build systems that help you find them faster.
+
+If you are studying for the exam, definitely check out the [ZTM course](https://zerotomastery.io/courses/learn-aws-cloud-practitioner/) for the fundamentals, and then clone my [AWS Study Framework repository](https://github.com/triwritescode/aws-exam-preparation) here to use the AI prompts for your active recall.
+
+If your team is looking for a product engineer who builds with the broader cloud infrastructure in mind, let's connect on [LinkedIn](https://www.linkedin.com/in/tridenda/).
