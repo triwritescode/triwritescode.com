@@ -73,11 +73,14 @@ const TinaMarkdwonComponents: Components<Record<string, never>> = {
   },
 
   // — Image —
+  // Rendered with span elements (display:block) rather than figure/figcaption:
+  // TinaMarkdown wraps a standalone image node in a <p>, and a <figure> is not
+  // a valid descendant of <p>, which triggers a hydration error.
   img: (props) => {
     if (!props) return <></>;
     const { url, alt, caption } = props;
     return (
-      <figure className="my-8">
+      <span className="my-8 block">
         <img
           src={url}
           alt={alt || ""}
@@ -85,11 +88,11 @@ const TinaMarkdwonComponents: Components<Record<string, never>> = {
           loading="lazy"
         />
         {caption && (
-          <figcaption className="mt-2 text-center text-sm text-gray-500">
+          <span className="mt-2 block text-center text-sm text-gray-500">
             {caption}
-          </figcaption>
+          </span>
         )}
-      </figure>
+      </span>
     );
   },
 
