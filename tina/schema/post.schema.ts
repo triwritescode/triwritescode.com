@@ -1,5 +1,6 @@
 import { Collection } from "tinacms";
 import seoFields from "./fields/seo.field";
+import youtubeEmbed from "./embeds/youtube.embed";
 
 const postSchema: Collection = {
   name: "post",
@@ -47,6 +48,7 @@ const postSchema: Collection = {
       label: "Body",
       description: "The main content of the post",
       isBody: true,
+      templates: [youtubeEmbed],
     },
   ],
 };
