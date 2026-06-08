@@ -2,25 +2,71 @@
 title: Projects
 seo:
   metaTitle: Projects
-  metaDescription: 'I have worked on a variety of projects over the years; some of them as a hobby, some as a proof of concept and others to solve my own pain points.'
+  metaDescription: From AI-powered SaaS to campus ERP and cross-platform mobile apps — production-grade projects built to solve real problems at scale.
   canonical: 'https://triwritescode.com/projects'
 blocks:
   - enable: true
     title: Projects
     description: |
-      I believe the best way to learn is to build. This collection ranges from experimental prototypes to fully functional tools designed to automate workflows and solve real operational problems.
+      I believe the best way to learn is to build. This collection spans AI-powered SaaS products, enterprise ERP systems, cross-platform mobile apps, and high-performance web applications — each designed to automate workflows and solve real operational problems at scale.
     projects:
-      - title: Siak STTK
+      - title: BeautifulCV
         description: |
-          A comprehensive Academic Information System for higher education. Features modules for Finance, Academic scheduling, and New Student Admissions to streamline campus administration.
+          An AI-powered resume tailoring SaaS built solo from concept to production. Features a 3-stage AI pipeline that parses job posts, scores skill gaps, and rewrites resume bullets to match — cutting resume tailoring from hours to under 1 minute. Supports multi-format import, server-side PDF export, and 2-tier paid plans via Lemon Squeezy.
+        logo: /projects/beautifulcv/favicon.png
+        achievements:
+          - label: AI Pipeline
+            value: 3-Stage
+          - label: Resume Time
+            value: <1 Min
+          - label: Commits
+            value: 100+
+          - label: API Routes
+            value: 14+
+        images:
+          - src: /projects/beautifulcv/01-gap-analysis.png
+            alt: BeautifulCV Gap Analysis
+          - src: /projects/beautifulcv/02-ai-resume-creation.png
+            alt: BeautifulCV AI Resume Creation
+          - src: /projects/beautifulcv/03-ai-cover-letter.png
+            alt: BeautifulCV AI Cover Letter
+          - src: /projects/beautifulcv/04-application-tracker.png
+            alt: BeautifulCV Application Tracker
+          - src: /projects/beautifulcv/05-ai-career-update.png
+            alt: BeautifulCV AI Career Update
+        links:
+          - icon: FiGlobe
+            label: Visit Website
+            url: 'https://beautifulcv.com'
+      - title: PAN Insight
+        description: |
+          A multi-platform reporting and approval app built with Flutter for Android, iOS, and Web. Features a 3-tier access system (Reader, Creator, Admin) enforced by Firestore security rules, a submit-to-approve workflow with author/approver routing, and file attachments with in-app PDF viewing. Built on a modular 7,500-line Dart codebase with 15+ screens and 11 shared service layers.
+        achievements:
+          - label: Platforms
+            value: 3 (iOS/Android/Web)
+          - label: Commits
+            value: 104 of 227
+          - label: Screens
+            value: 15+
+          - label: Access Control
+            value: 3-Tier RBAC
+        links:
+          - icon: FiGithub
+            label: View Source
+            url: 'https://github.com/triwritescode'
+      - title: SIAK STTK
+        description: |
+          A campus-wide Academic ERP system architected from scratch with 27 relational entities, 800+ lines of schema, and a 6-role access-control system gating 54 pages and 16 API routes. Features a full finance module with auto-generated invoices and partial payments, 9 master-data CRUD domains, one-click Excel exports, and finance-gated enrollment blocking registration until tuition is cleared.
         logo: /projects/sttk/sttk.webp
         achievements:
-          - label: Work Efficiency
-            value: 50+
-          - label: Active Users
-            value: 144+
-          - label: Modules
-            value: E2E Campus
+          - label: Entities
+            value: 27 Relational
+          - label: Access Roles
+            value: 6 Roles
+          - label: Pages
+            value: '54'
+          - label: API Routes
+            value: '16'
         images:
           - src: /projects/sttk/1-sttk-home.webp
             alt: Siak STTK Home
@@ -44,11 +90,11 @@ blocks:
             url: 'https://siak.sttk.ac.id'
       - title: Siliwangi Studio
         description: |
-          A high-performance company profile site designed to showcase digital services. Built for speed and scalability, featuring a modern UI and optimized for global reach.
+          A high-performance company profile site designed to showcase digital services. Built for speed and scalability, featuring a modern UI and optimized for global reach. Part of a portfolio of 10+ Next.js web applications consistently achieving perfect 100/100 Lighthouse scores.
         logo: /projects/siliwangistudio/siliwangistudio.webp
         achievements:
           - label: Lighthouse Score
-            value: 90+
+            value: 100/100
           - label: Reach
             value: Global Clients
           - label: Uptime
